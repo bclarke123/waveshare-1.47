@@ -211,7 +211,7 @@ int LCD_1in47_test(void)
         is_pressed = get_bootsel_button();
         if (is_pressed && !was_pressed) {
             was_pressed = true;
-            screen_index = (screen_index + 1) % 3;
+            screen_index = (screen_index + 1) % 4;
             lv_scr_load(dat->scr[screen_index]);
         } else
         if (was_pressed && !is_pressed) {
@@ -242,11 +242,13 @@ static void Widgets_Init(lvgl_data_struct *dat)
     dat->scr[0] = lv_obj_create(NULL);
     dat->scr[1] = lv_obj_create(NULL);
     dat->scr[2] = lv_obj_create(NULL);
+    dat->scr[3] = lv_obj_create(NULL);
     
     /*Declare and load the image resource*/
     LV_IMG_DECLARE(julian);
     LV_IMG_DECLARE(julian2);
     LV_IMG_DECLARE(julian3);
+    LV_IMG_DECLARE(julian4);
 
     lv_obj_t *img1 = lv_img_create(dat->scr[0]);
     lv_img_set_src(img1, &julian);
@@ -259,6 +261,10 @@ static void Widgets_Init(lvgl_data_struct *dat)
     lv_obj_t *img3 = lv_img_create(dat->scr[2]);
     lv_img_set_src(img3, &julian3);
     lv_obj_align(img3, LV_ALIGN_CENTER, 0, 0);
+
+    lv_obj_t *img4 = lv_img_create(dat->scr[3]);
+    lv_img_set_src(img4, &julian4);
+    lv_obj_align(img4, LV_ALIGN_CENTER, 0, 0);
 
     /*Load the first screen as the current active screen*/
     lv_scr_load(dat->scr[0]);
