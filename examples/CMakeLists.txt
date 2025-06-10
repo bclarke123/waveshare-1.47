@@ -9,4 +9,4 @@ include_directories(./inc)
 
 # Generate link library
 add_library(examples ${DIR_examples_SRCS})
-target_link_libraries(examples PUBLIC Config LCD LVGL hardware_clocks hardware_adc hardware_dma hardware_spi hardware_pio)
+target_link_libraries(examples PUBLIC Config LCD LVGL hardware_clocks hardware_adc hardware_dma hardware_spi hardware_pio hardware_gpio)

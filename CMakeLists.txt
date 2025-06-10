@@ -81,6 +81,7 @@ add_compile_options(-O2)
                         hardware_i2c
                         hardware_pio
                         hardware_dma
+                        hardware_gpio
                         )
 
 # Add the standard include files to the build
